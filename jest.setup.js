@@ -1,6 +1,8 @@
-// Optional: configure or set up a testing framework before each test.
-// If you delete this file, remove `setupFilesAfterEnv` from `jest.config.js`
+// This file serves as the configuration for setting up a testing framework before each test.
 
-// Used for __tests__/testing-library.js
-// Learn more: https://github.com/testing-library/jest-dom
+// If you decide not to use this file, ensure that you also remove the corresponding entry
+// `setupFilesAfterEnv` from your `jest.config.js` file.
+
+// The following import is related to the testing-library setup for jest-dom.
+// Learn more about it here: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
