@@ -3,11 +3,6 @@ import { getMovieDetails } from "@/utils/GetMovieData";
 import { AddToFavoriteSchema } from "@/utils/ValidationSchema";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
-import { getMovieDetails } from "@/utils/GetMovieData";
-import { AddToFavoriteSchema } from "@/utils/ValidationSchema";
-import { TRPCError } from "@trpc/server";
-import { z } from "zod";
 
 export const FavoriteRouter = createTRPCRouter({
   get: protectedProcedure.query(async ({ ctx }) => {
