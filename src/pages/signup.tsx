@@ -40,7 +40,7 @@ export default function SignInPage() {
   return (
     <>
       <Head>
-        <title>Omnify Movie App | Sign-up</title>
+        <title>BlueBird Movie App | Sign-up</title>
       </Head>
       <section className="bg-neutral-100 dark:bg-neutral-900">
         <div className="mx-auto flex h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
@@ -52,9 +52,9 @@ export default function SignInPage() {
               <LucideArrowLeft className="text-2xl" />
             </Link>
             <div className="my-10  flex flex-col items-center ">
-              <p className="text-3xl">Omnify Movie App</p>
+              <p className="text-3xl">BlueBird Movie App</p>
               <Link
-                href={"https://github.com/vishalx360/omnify-movie-app"}
+                href={"https://github.com/M-YasirGhaffar/sc-project-bluebird.git"}
                 className={
                   "text-md flex items-center py-2 pl-3 pr-4 underline-offset-2  hover:underline "
                 }

@@ -7,7 +7,7 @@ export default function Home({ session }: { session: Session }) {
   return (
     <>
       <Head>
-        <title>Omnify Movie App</title>
+        <title>BlueBird Movie App</title>
         <meta
           name="description"
           content="Solution for Full Stack Developer Assignment"
