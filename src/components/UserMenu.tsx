@@ -59,15 +59,15 @@ export function UserMenu() {
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
-        <Link
-          href="https://github.com/vishalx360/omnify-movie-app"
+        {/* <Link
+          href="https://github.com/M-YasirGhaffar/sc-project-bluebird.git"
           target="_blank"
         >
           <DropdownMenuItem>
             Github
             <DropdownMenuShortcut>⌘G</DropdownMenuShortcut>
           </DropdownMenuItem>
-        </Link>
+        </Link> */}
         <DropdownMenuSeparator />
         <Link href="/api/auth/signout">
           <DropdownMenuItem className="text-red-500">

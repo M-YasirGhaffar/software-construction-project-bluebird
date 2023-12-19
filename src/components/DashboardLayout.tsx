@@ -29,7 +29,7 @@ const pages = [
   {
     name: "Github",
     isExternal: true,
-    path: "https://github.com/vishalx360/omnify-movie-app",
+    path: "https://github.com/M-YasirGhaffar/sc-project-bluebird.git",
   },
 ];
 function MainNav() {
@@ -41,7 +41,7 @@ function MainNav() {
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <Link href="/dashboard" className="flex items-center">
           <span className="self-center whitespace-nowrap text-2xl font-medium dark:text-white">
-            Omnify Movie App
+            BlueBird Movie App
           </span>
         </Link>
         <div className="hidden lg:block">

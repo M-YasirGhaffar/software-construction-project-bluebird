@@ -17,21 +17,21 @@ export default function SignInPage() {
   return (
     <>
       <Head>
-        <title>Omnify Movie App | Sign-in</title>
+        <title>BlueBird Movie App | Sign-in</title>
       </Head>
       <section className="bg-neutral-100 dark:bg-neutral-900">
         <div className="mx-auto flex h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
           <motion.div layoutId="header" className="flex items-center  gap-5">
-            <Link
+            {/* <Link
               href="/"
               className="flex items-center gap-5 rounded-full border-neutral-400 p-2 transition duration-200 ease-in-out hover:bg-neutral-500/20 "
             >
               <LucideArrowLeft className="text-2xl" />
-            </Link>
+            </Link> */}
             <div className="my-10  flex flex-col items-center ">
-              <p className="text-3xl">Omnify Movie App</p>
-              <Link
-                href={"https://github.com/vishalx360/omnify-movie-app"}
+              <p className="text-3xl">BlueBird Movie App</p>
+              {/* <Link
+                href={"https://github.com/M-YasirGhaffar/sc-project-bluebird.git"}
                 className={
                   "text-md flex items-center py-2 pl-3 pr-4 underline-offset-2  hover:underline "
                 }
@@ -40,7 +40,7 @@ export default function SignInPage() {
               >
                 Github Repo
                 <ExternalLinkIcon className="ml-1 inline h-4 w-4" />
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
           <motion.div
