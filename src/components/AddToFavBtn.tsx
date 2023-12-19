@@ -2,6 +2,9 @@ import { api } from "@/utils/api";
 import { Heart, Trash } from "lucide-react";
 import type MovieDB from "node-themoviedb";
 import { Button } from "./ui/button";
+import { Play } from "lucide-react";
+import { useEffect, useState } from "react";
+
 
 function AddToFavBtn({ movie }: { movie: MovieDB.Responses.Movie.GetDetails }) {
   const utils = api.useContext();
@@ -47,7 +50,23 @@ function AddToFavBtn({ movie }: { movie: MovieDB.Responses.Movie.GetDetails }) {
 
   if (error) {
     return <Button variant="destructiveOutline">Some Error Occured</Button>;
-  }
+  }  
+
+  const [playClicked, handlePlayClicked] = useState(false);
+
+  useEffect(() => {
+      const timeout = setTimeout(() => {
+        handlePlayClicked(false);
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+  }, [playClicked]);
+
+  const handlePlay = () => {
+    handlePlayClicked(true);
+  };
+
+
   return (
     <>
       <Button
@@ -67,6 +86,31 @@ function AddToFavBtn({ movie }: { movie: MovieDB.Responses.Movie.GetDetails }) {
           ? "Remove from favorite"
           : "Add to favorite"}
       </Button>
+      
+
+
+      <Button
+        style={{ marginLeft: ".5rem", backgroundColor: "grey" }}
+
+        // isLoading={
+        //   isLoading || AddMutation.isLoading || RemoveMutation.isLoading
+        // }
+        // disabled={
+        //   isLoading || AddMutation.isLoading || RemoveMutation.isLoading
+        // }
+        LeftIcon={Play}
+        onClick={handlePlay}
+      >
+        Play
+      </Button>
+
+        <span style={{ display: "flex", flexWrap: "wrap" }}>
+          {playClicked && (
+            <p style={{ color: "red", margin: ".5rem", fontSize:'.75rem' }}>
+              <em>Watching movies is not free. This button is just a placeholder.</em>
+            </p>
+          )}
+        </span>
     </>
   );
 }
