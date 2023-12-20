@@ -13,7 +13,7 @@ export const movieSectionTypes = [
 export const DEFAULT_QUERY_CONFIG = {
   query: {
     page: 1,
-    region: "IN",
+    region: "US",
   },
 };
 
