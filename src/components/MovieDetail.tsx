@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import type MovieDB from "node-themoviedb";
 import ImageWithFallback from "./ImageWithFallback";
+import Link from 'next/link';
+import { ExternalLinkIcon } from "lucide-react";
+
 function MovieDetail({
   movie,
   children,
@@ -23,12 +26,16 @@ function MovieDetail({
         />
       </motion.div>
       <div className="max-w-[700px]  p-6">
-        <h2 className="mb-2 text-2xl font-semibold md:text-4xl">
+
+      <a href={`/watch/${movie.id}`} target="_blank" rel="noopener noreferrer" className="group">
+        <h2 className="mb-2 text-2xl font-semibold md:text-4xl inline-block group-hover:underline transition-transform duration-200">
           {movie.title}
-        </h2>
+          <ExternalLinkIcon className="h-5 w-5 inline-block ml-1 opacity-0 group-hover:opacity-100" />        </h2>
+        </a>
+
         <div className="text-md flex items-center gap-5">
-          <p className="text-gray-600  ">Released : {movie.release_date}</p>
-          <p className="text-gray-600  ">Rating : {movie.vote_average}</p>
+          <p className="text-gray-600  ">Released: {movie.release_date}</p>
+          <p className="text-gray-600  ">Rating: {movie.vote_average}/10</p>
         </div>
         <p className="mb-4 mt-10 leading-8 text-gray-700">
           Synopsis: {movie.overview}

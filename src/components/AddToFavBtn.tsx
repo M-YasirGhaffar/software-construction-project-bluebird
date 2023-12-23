@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
-
 function AddToFavBtn({ movie }: { movie: MovieDB.Responses.Movie.GetDetails }) {
   const utils = api.useContext();
   const {
@@ -111,14 +110,13 @@ function AddToFavBtn({ movie }: { movie: MovieDB.Responses.Movie.GetDetails }) {
       <Button
         onClick={handlePlay}
         style={ {margin: "0.5rem"} }
-        LeftIcon={LucidePlaySquare}
         RightIcon={ExternalLink}
       >
         Trailer |
       </Button>
 
       <span>
-        { foundKey && playClicked && <p style={ {color:"red", fontSize:"0.75rem", fontStyle:"italic"} } >Production company of this movie didn't allowed to post trailer.</p> }
+        { foundKey && playClicked && <p style={ {color:"red", fontSize:"0.75rem", fontStyle:"italic"} } >Production company of this movie didn't allow to play trailer.</p> }
       </span>
 
     </>

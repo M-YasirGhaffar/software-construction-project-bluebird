@@ -49,7 +49,7 @@ export default function SignInPage() {
               href="/"
               className="flex items-center gap-5 rounded-full border-neutral-400 p-2 transition duration-200 ease-in-out hover:bg-neutral-500/20 "
             >
-              <LucideArrowLeft className="text-2xl" />
+              {/* <LucideArrowLeft className="text-2xl" /> */}
             </Link>
             <div className="my-10  flex flex-col items-center ">
               <p className="text-3xl">BlueBird Movie App</p>
