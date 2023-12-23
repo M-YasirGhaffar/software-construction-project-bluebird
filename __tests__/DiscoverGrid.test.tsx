@@ -138,7 +138,6 @@ describe("DiscoverGrid Component", () => {
 
   it("renders DiscoverGrid correctly with custom movie data", () => {
     const customMovies: MovieDB.Responses.Movie.GetDetails[] = [
-      // Define your custom movie data for this test
     ];
 
     render(<DiscoverGrid type="UPCOMING" movies={customMovies} />);
@@ -147,5 +146,11 @@ describe("DiscoverGrid Component", () => {
 
   });
 
+  it("renders DiscoverGrid correctly with original DiscoverGrid component", () => {
+    render(<DiscoverGrid type="POPULAR" movies={mockMovies} />);
+    const titleElement = screen.getByText("Popular");
+    expect(titleElement).toBeInTheDocument();
+
+  });
 
 });

@@ -100,10 +100,26 @@ describe("MovieGrid Component", () => {
     const titleElement = getByText("Test Movies");
     expect(titleElement).toBeInTheDocument();
 
-    // Check if movie previews are rendered
-
-    // You can add more specific assertions based on your actual UI and data
-    // For example, check if a specific movie title is present in the grid
-
   });
+
+  it("renders each movie in the grid", () => {
+    const { getByText } = render(
+      <MovieGrid title="Test Movies" movies={TEST_MOVIES_DATA} />
+    );
+
+    TEST_MOVIES_DATA.forEach((movie) => {
+      const movieElement = getByText(movie.title);
+      expect(movieElement).toBeInTheDocument();
+    });
+  });
+
+  it("does not render 'No movies found' when there are movies", () => {
+    const { queryByText } = render(
+      <MovieGrid title="Test Movies" movies={TEST_MOVIES_DATA} />
+    );
+
+    const noMoviesMessage = queryByText("No movies found");
+    expect(noMoviesMessage).not.toBeInTheDocument();
+  });
+
 });
