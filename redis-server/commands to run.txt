@@ -1,7 +1,5 @@
-redis-server redis.conf
+./redis-server/redis-server redis.conf
 
+./redis-server/redis-server.exe
 
-redis-server
-
-
-redis-cli
+./redis-server/redis-cli.exe
