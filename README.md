@@ -50,23 +50,27 @@ Here are some screenshots showcasing different aspects of the project:
 
 ### Login/Signup
 
-![Login/Signup](public/diagrams/details.png)
+![Login/Signup](public/screenshots/signin.png)
 
 ### Dashboard
 
-![Dashboard](public/diagrams/details.png)
+![Dashboard](public/screenshots/dashboard.png)
+
+### Favorites
+
+![Dashboard](public/screenshots/favorites.png)
 
 ### Movie Detail Page
 
-![Movie Detail](public/diagrams/details.png)
+![Movie Detail](public/screenshots/movie-details.png)
 
-### Watch Trailer
+### Movie Player Page
 
-![Watch Trailer](public/diagrams/details.png)
+![Watch Trailer](public/screenshots/movie-player.png)
 
-### Watch Movie (Movie Player Page)
+### Movie Player Page (Full Screen)
 
-![Watch Movie](public/diagrams/details.png)
+![Watch Movie](public/screenshots/movie-fullscreen.png)
 
 ## Features
 
