@@ -5,6 +5,7 @@ Welcome to BlueBird Movies, a cutting-edge movie streaming application designed 
 ## Table of Contents
 
 1. [Introduction](#introduction)
+1. [Screenshots](#screenshots)
 2. [Features](#features)
 3. [Tech Stack](#tech-stack)
 4. [Installation](#installation)
@@ -42,6 +43,30 @@ The project is managed through npm, the default package manager for Node.js. npm
 ### Scalability and Maintainability
 
 The BlueBird Movies project is architected for scalability and maintainability. Whether you are contributing to the codebase or exploring its intricacies, this documentation serves as your comprehensive guide to understanding the project's structure, features, and the principles that underpin its development. Elevate your movie streaming experience with BlueBird Movies – where technology meets cinematic entertainment.
+
+## Screenshots
+
+Here are some screenshots showcasing different aspects of the project:
+
+### Login/Signup
+
+![Login/Signup](public/diagrams/details.png)
+
+### Dashboard
+
+![Dashboard](public/diagrams/details.png)
+
+### Movie Detail Page
+
+![Movie Detail](public/diagrams/details.png)
+
+### Watch Trailer
+
+![Watch Trailer](public/diagrams/details.png)
+
+### Watch Movie (Movie Player Page)
+
+![Watch Movie](public/diagrams/details.png)
 
 ## Features
 
