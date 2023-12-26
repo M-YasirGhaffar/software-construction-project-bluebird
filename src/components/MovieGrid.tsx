@@ -1,6 +1,17 @@
 import type MovieDB from "node-themoviedb";
 import MoviePreview, { MoviePreviewSkeleton } from "./MoviePreview";
 
+/**
+ * MovieGrid Component
+ *
+ * This component displays a grid of movie previews with a title.
+ *
+ * @param {Object} props - The properties of the component.
+ * @param {string} props.title - The title of the movie grid.
+ * @param {MovieDB.Responses.Movie.GetDetails[]} props.movies - An array of movie details to be displayed in the grid.
+ * 
+ * @returns {React.Component} - The rendered MovieGrid component.
+ */
 function MovieGrid({
   movies,
   title,
@@ -28,6 +39,17 @@ function MovieGrid({
 
 export default MovieGrid;
 
+/**
+ * MovieRowSkeleton Component
+ *
+ * This component provides a skeleton loading state for the MovieGrid component.
+ * It is used to indicate a loading state while fetching movie details.
+ *
+ * @param {Object} props - The properties of the component.
+ * @param {number} props.amount - The number of movie preview skeletons to be displayed.
+ * 
+ * @returns {React.Component} - The rendered MovieRowSkeleton component.
+ */
 export function MovieRowSkeleton({ amount }: { amount: number }) {
   const MoviesSkeleton = [];
   for (let i = 0; i < amount; i++) {

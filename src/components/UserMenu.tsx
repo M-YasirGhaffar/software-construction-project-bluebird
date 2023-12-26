@@ -14,8 +14,17 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
+/**
+ * UserMenu Component
+ *
+ * This component represents the user menu, providing options for user-related actions.
+ *
+ * @returns {React.Component} - The rendered UserMenu component.
+ */
 export function UserMenu() {
+  // Retrieve user session information
   const { data: session } = useSession();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -25,7 +34,7 @@ export function UserMenu() {
               src={
                 session?.user.image ?? getGravatar(session?.user.email ?? "")
               }
-              alt="@shadcn"
+              alt={session?.user.name ?? ""}
             />
             <AvatarFallback>
               {session?.user.name ? session?.user.name[0] : "X"}
@@ -59,10 +68,8 @@ export function UserMenu() {
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
-        {/* <Link
-          href="https://github.com/M-YasirGhaffar/sc-project-bluebird.git"
-          target="_blank"
-        >
+        {/* Uncomment the following lines when the GitHub link is available */}
+        {/* <Link href="https://github.com/M-YasirGhaffar/sc-project-bluebird.git" target="_blank">
           <DropdownMenuItem>
             Github
             <DropdownMenuShortcut>⌘G</DropdownMenuShortcut>

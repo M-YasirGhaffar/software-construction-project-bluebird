@@ -15,28 +15,43 @@ import { useToast } from "@/components/ui/use-toast";
 import { SignUpSchema } from "@/utils/ValidationSchema";
 import { api } from "@/utils/api";
 
+/**
+ * SignInPage Component
+ *
+ * This component represents the Sign-up page of the BlueBird Movie App.
+ *
+ * @returns {React.Component} - The rendered SignInPage component.
+ */
 export default function SignInPage() {
   const router = useRouter();
   const { toast } = useToast();
 
+  // Mutation for signup API
   const mutation = api.authentication.signup.useMutation({
     onError(error) {
+      // Display error toast on mutation error
       toast({
         variant: "destructive",
         title: error.message || "Uh oh! Something went wrong.",
         description: "There was a problem with your request.",
-        // action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
     },
     onSuccess: async () => {
+      // Display success toast on successful signup and redirect to signin page
       toast({ title: "Account created successfully!" });
       await router.push("/signin").catch((err) => console.log(err));
     },
   });
 
+  /**
+   * Handle OAuth Sign-in
+   *
+   * @param {string} provider - OAuth provider (e.g., "github").
+   */
   async function handelOauthSignin(provider: string) {
     await signIn(provider);
   }
+
   return (
     <>
       <Head>
@@ -76,6 +91,7 @@ export default function SignInPage() {
               <h1 className="text-xl font-medium leading-tight tracking-tight text-neutral-900 dark:text-white md:text-2xl">
                 Create new account
               </h1>
+              {/* Formik form for signup */}
               <Formik
                 initialValues={{
                   name: "",
@@ -84,10 +100,12 @@ export default function SignInPage() {
                 }}
                 validationSchema={toFormikValidationSchema(SignUpSchema)}
                 onSubmit={(values) => {
+                  // Call the signup mutation on form submission
                   mutation.mutate(values);
                 }}
               >
                 <Form className="space-y-4 md:space-y-6" action="#">
+                  {/* Form field for name */}
                   <Field name="name">
                     {({ field, meta }: FieldProps) => (
                       <div>
@@ -105,6 +123,7 @@ export default function SignInPage() {
                           required
                           {...field}
                         />
+                        {/* Display error message if there is an error */}
                         {meta.touched && meta.error && (
                           <p className="ml-2 mt-2 text-sm text-red-500">
                             {meta.error}
@@ -113,6 +132,7 @@ export default function SignInPage() {
                       </div>
                     )}
                   </Field>
+                  {/* Form field for email */}
                   <Field name="email">
                     {({ field, meta }: FieldProps) => (
                       <div>
@@ -130,6 +150,7 @@ export default function SignInPage() {
                           required
                           {...field}
                         />
+                        {/* Display error message if there is an error */}
                         {meta.touched && meta.error && (
                           <p className="ml-2 mt-2 text-sm text-red-500">
                             {meta.error}
@@ -138,7 +159,9 @@ export default function SignInPage() {
                       </div>
                     )}
                   </Field>
+                  {/* Password input field */}
                   <PasswordInput />
+                  {/* Signup button */}
                   <Button
                     type="submit"
                     className="text-md w-full"
@@ -148,6 +171,7 @@ export default function SignInPage() {
                   >
                     Sign up
                   </Button>
+                  {/* OAuth signup with Github button */}
                   <div className="flex flex-col items-center gap-2 md:flex-row">
                     <Button
                       onClick={() => {
@@ -161,7 +185,7 @@ export default function SignInPage() {
                       Continue with Github
                     </Button>
                   </div>
-
+                  {/* Signin link */}
                   <p className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
                     Already have an account ?{" "}
                     <Link
@@ -181,15 +205,27 @@ export default function SignInPage() {
   );
 }
 
+/**
+ * Get Server Side Props Function
+ *
+ * This function is used to fetch server-side data for the SignInPage component.
+ *
+ * @param {GetServerSidePropsContext} context - The context object.
+ * @returns {Object} - An object with props or redirect information.
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // Check if the user is already signed in
   const session = await getSession(context);
   if (session) {
+    // Redirect to the dashboard if already signed in
     return {
       redirect: {
         destination: "/dashboard",
       },
     };
   }
+
+  // Return the session props
   return {
     props: { session },
   };

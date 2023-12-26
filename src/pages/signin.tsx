@@ -10,10 +10,23 @@ import { Button } from "@/components/ui/button";
 import Divider from "@/modules/Global/Divider";
 import { CredentialSection } from "@/modules/Signin/CredentialSection";
 
+/**
+ * SignInPage Component
+ *
+ * This component represents the Sign-in page of the BlueBird Movie App.
+ *
+ * @returns {React.Component} - The rendered SignInPage component.
+ */
 export default function SignInPage() {
+  /**
+   * Handle OAuth Sign-in
+   *
+   * @param {string} provider - OAuth provider (e.g., "github").
+   */
   async function handelOauthSignin(provider: string) {
     await signIn(provider);
   }
+
   return (
     <>
       <Head>
@@ -55,12 +68,14 @@ export default function SignInPage() {
               </h1>
 
               <AnimatePresence mode="wait">
+                {/* Animate presence for credential section */}
                 <CredentialSection />
               </AnimatePresence>
 
               <Divider />
 
               <div className="flex flex-col items-center gap-2 md:flex-row">
+                {/* Button for OAuth sign-in with GitHub */}
                 <Button
                   onClick={() => {
                     void handelOauthSignin("github");
@@ -75,6 +90,7 @@ export default function SignInPage() {
               </div>
               <p className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
                 Don’t have an account yet?{" "}
+                {/* Link to sign up page */}
                 <Link
                   href="/signup"
                   className="font-medium text-black hover:underline dark:text-blue-500"
@@ -90,15 +106,27 @@ export default function SignInPage() {
   );
 }
 
+/**
+ * Get Server Side Props Function
+ *
+ * This function is used to fetch server-side data for the SignInPage component.
+ *
+ * @param {GetServerSidePropsContext} context - The context object.
+ * @returns {Object} - An object with props or redirect information.
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // Check if the user is already signed in
   const session = await getSession(context);
   if (session) {
+    // Redirect to the dashboard if already signed in
     return {
       redirect: {
         destination: "/dashboard",
       },
     };
   }
+
+  // Return the session props
   return {
     props: { session },
   };

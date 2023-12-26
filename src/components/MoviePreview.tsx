@@ -2,6 +2,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import type MovieDB from "node-themoviedb";
 import ImageWithFallback from "./ImageWithFallback";
+
+/**
+ * MoviePreview Component
+ *
+ * This component represents a preview of a movie, including an image and title.
+ *
+ * @param {Object} props - The properties of the component.
+ * @param {MovieDB.Responses.Movie.GetDetails} props.movie - The details of the movie to be displayed.
+ * 
+ * @returns {React.Component} - The rendered MoviePreview component.
+ */
 function MoviePreview({
   movie,
 }: {
@@ -36,6 +47,14 @@ function MoviePreview({
 
 export default MoviePreview;
 
+/**
+ * MoviePreviewSkeleton Component
+ *
+ * This component provides a skeleton loading state for the MoviePreview component.
+ * It is used to indicate a loading state while fetching movie details.
+ *
+ * @returns {React.Component} - The rendered MoviePreviewSkeleton component.
+ */
 export function MoviePreviewSkeleton() {
   return (
     <div className="border-1 h-64  min-h-[60px] w-32 animate-pulse rounded-xl border-gray-400 bg-gray-400/50 p-2  px-4 py-3 shadow" />

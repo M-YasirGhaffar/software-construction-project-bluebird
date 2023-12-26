@@ -1,6 +1,15 @@
 import type MovieDB from "node-themoviedb";
 import MoviePreview from "./MoviePreview";
 
+/**
+ * SimilarMovies Component
+ *
+ * This component displays a list of similar movies.
+ *
+ * @param {Object} props - The component props.
+ * @param {MovieDB.Responses.Movie.GetDetails[]} props.movies - The list of similar movies.
+ * @returns {React.Component} - The rendered SimilarMovies component.
+ */
 function SimilarMovies({
   movies,
 }: {
@@ -23,6 +32,13 @@ function SimilarMovies({
 
 export default SimilarMovies;
 
+/**
+ * SimilarMoviesSkeleton Component
+ *
+ * This component renders a skeleton loading state for SimilarMovies.
+ *
+ * @returns {React.Component} - The rendered SimilarMoviesSkeleton component.
+ */
 export function SimilarMoviesSkeleton() {
   return (
     <div className="mb-8">

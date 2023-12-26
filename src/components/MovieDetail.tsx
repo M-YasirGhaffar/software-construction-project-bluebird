@@ -4,6 +4,17 @@ import ImageWithFallback from "./ImageWithFallback";
 import Link from 'next/link';
 import { ExternalLinkIcon } from "lucide-react";
 
+/**
+ * MovieDetail Component
+ *
+ * This component displays detailed information about a movie, including its title, poster, release date, rating, and synopsis.
+ *
+ * @param {Object} props - The properties of the component.
+ * @param {MovieDB.Responses.Movie.GetDetails} props.movie - The movie details object.
+ * @param {React.ReactNode} [props.children] - Additional content to be displayed within the component.
+ * 
+ * @returns {React.Component} - The rendered MovieDetail component.
+ */
 function MovieDetail({
   movie,
   children,
@@ -25,12 +36,13 @@ function MovieDetail({
           className="h-full w-full rounded-lg object-cover"
         />
       </motion.div>
-      <div className="max-w-[700px]  p-6">
+      <div className="max-w-[700px] p-6">
 
-      <a href={`/watch/${movie.id}`} target="_blank" rel="noopener noreferrer" className="group">
-        <h2 className="mb-2 text-2xl font-semibold md:text-4xl inline-block group-hover:underline transition-transform duration-200">
-          {movie.title}
-          <ExternalLinkIcon className="h-5 w-5 inline-block ml-1 opacity-0 group-hover:opacity-100" />        </h2>
+        <a href={`/watch/${movie.id}`} target="_blank" rel="noopener noreferrer" className="group">
+          <h2 className="mb-2 text-2xl font-semibold md:text-4xl inline-block group-hover:underline transition-transform duration-200">
+            {movie.title}
+            <ExternalLinkIcon className="h-5 w-5 inline-block ml-1 opacity-0 group-hover:opacity-100" />
+          </h2>
         </a>
 
         <div className="text-md flex items-center gap-5">
@@ -48,6 +60,14 @@ function MovieDetail({
 
 export default MovieDetail;
 
+/**
+ * MovieDetailSkeleton Component
+ *
+ * This component provides a skeleton loading state for the MovieDetail component.
+ * It is used to indicate a loading state while fetching movie details.
+ *
+ * @returns {React.Component} - The rendered MovieDetailSkeleton component.
+ */
 export function MovieDetailSkeleton() {
   return (
     <div className="flex flex-col items-center justify-center md:flex-row md:justify-start md:gap-10">

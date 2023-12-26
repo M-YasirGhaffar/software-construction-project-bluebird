@@ -2,15 +2,31 @@ import { Field, type FieldProps } from "formik";
 import { useCallback, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
+/**
+ * PasswordInput Component
+ *
+ * This component represents a password input field with a toggleable visibility icon.
+ *
+ * @param {Object} props - The properties of the component.
+ * @param {string} [props.name="password"] - The name of the password input field.
+ *
+ * @returns {React.Component} - The rendered PasswordInput component.
+ */
 function PasswordInput({ name = "password" }: { name?: string }) {
   const [hidden, setHidden] = useState(true);
 
+  /**
+   * Callback function to hide the password after a delay.
+   */
   const hide = useCallback(() => {
     setTimeout(() => {
       setHidden(true);
     }, 10000);
   }, []);
 
+  /**
+   * Callback function to show the password.
+   */
   const show = useCallback(() => {
     setHidden(false);
   }, []);

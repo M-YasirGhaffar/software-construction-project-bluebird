@@ -6,6 +6,13 @@ import { toFormikValidationSchema } from "zod-formik-adapter";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+/**
+ * SearchInput Component
+ *
+ * This component represents a search input field with formik integration for form handling.
+ *
+ * @returns {React.Component} - The rendered SearchInput component.
+ */
 export function SearchInput() {
   const router = useRouter();
 
@@ -40,7 +47,7 @@ export function SearchInput() {
             </Button>
           </div>
           <div className="ml-2 mt-2 text-sm text-red-500">
-            <ErrorMessage name="name" />
+            <ErrorMessage name="query" />
           </div>
         </Form>
       </Formik>
