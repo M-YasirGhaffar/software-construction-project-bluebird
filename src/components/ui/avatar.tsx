@@ -1,8 +1,17 @@
+// Importing necessary dependencies
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import * as React from "react";
 
+// Importing utility function
 import { cn } from "@/lib/utils";
 
+/**
+ * Avatar component that uses Radix UI Avatar primitives.
+ *
+ * @param {object} props - Props for the Avatar component.
+ * @param {string} props.className - Additional CSS classes for styling.
+ * @returns {JSX.Element} - Rendered Avatar component.
+ */
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
@@ -19,6 +28,13 @@ const Avatar = React.forwardRef<
 ));
 Avatar.displayName = AvatarPrimitive.Root.displayName;
 
+/**
+ * AvatarImage component that uses Radix UI Avatar primitives.
+ *
+ * @param {object} props - Props for the AvatarImage component.
+ * @param {string} props.className - Additional CSS classes for styling.
+ * @returns {JSX.Element} - Rendered AvatarImage component.
+ */
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
@@ -31,6 +47,13 @@ const AvatarImage = React.forwardRef<
 ));
 AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
+/**
+ * AvatarFallback component that uses Radix UI Avatar primitives.
+ *
+ * @param {object} props - Props for the AvatarFallback component.
+ * @param {string} props.className - Additional CSS classes for styling.
+ * @returns {JSX.Element} - Rendered AvatarFallback component.
+ */
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
@@ -47,4 +70,5 @@ const AvatarFallback = React.forwardRef<
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
+// Exporting components for external use
 export { Avatar, AvatarFallback, AvatarImage };

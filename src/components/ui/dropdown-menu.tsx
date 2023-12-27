@@ -1,9 +1,12 @@
+// Importing necessary dependencies
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import * as React from "react";
 
+// Importing utility function
 import { cn } from "@/lib/utils";
 
+// Extracting components from Radix UI DropdownMenuPrimitive
 const DropdownMenu = DropdownMenuPrimitive.Root;
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -15,6 +18,8 @@ const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
+
+// ForwardRef components for custom styling and functionality
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
@@ -38,6 +43,20 @@ const DropdownMenuSubTrigger = React.forwardRef<
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName;
 
+/**
+ * DropdownMenuSubContent Component:
+ *
+ * Custom styled component for the sub-menu content within a dropdown menu.
+ * This component is created using Radix UI's DropdownMenuPrimitive.SubContent.
+ *
+ * @param {object} props - React component props.
+ * @param {string} props.className - Additional classes to be applied to the component.
+ * @param {React.Ref} props.ref - Forwarded ref to access the underlying DOM element.
+ * @param {object} props... - Other props are spread to the underlying SubContent component.
+ *
+ * @returns {JSX.Element} - Rendered DropdownMenuSubContent component.
+*/
+
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
@@ -53,6 +72,24 @@ const DropdownMenuSubContent = React.forwardRef<
 ));
 DropdownMenuSubContent.displayName =
   DropdownMenuPrimitive.SubContent.displayName;
+
+
+
+/**
+ * DropdownMenuContent Component:
+ *
+ * Custom styled component for the main content within a dropdown menu.
+ * This component is created using Radix UI's DropdownMenuPrimitive.Content.
+ *
+ * @param {object} props - React component props.
+ * @param {string} props.className - Additional classes to be applied to the component.
+ * @param {number} props.sideOffset - Offset from the side.
+ * @param {React.Ref} props.ref - Forwarded ref to access the underlying DOM element.
+ * @param {object} props... - Other props are spread to the underlying Content component.
+ *
+ * @returns {JSX.Element} - Rendered DropdownMenuContent component.
+ */
+
 
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
@@ -71,6 +108,22 @@ const DropdownMenuContent = React.forwardRef<
   </DropdownMenuPrimitive.Portal>
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
+
+
+
+/**
+ * DropdownMenuItem Component:
+ *
+ * ForwardRef component for custom-styled menu items within a dropdown menu.
+ *
+ * @param {object} props - React component props.
+ * @param {string} props.className - Additional classes to be applied to the component.
+ * @param {boolean} props.inset - Whether to apply inset styling.
+ * @param {React.Ref} props.ref - Forwarded ref to access the underlying DOM element.
+ * @param {object} props... - Other props are spread to the underlying Item component.
+ *
+ * @returns {JSX.Element} - Rendered DropdownMenuItem component.
+ */
 
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
@@ -166,6 +219,19 @@ const DropdownMenuSeparator = React.forwardRef<
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
+
+/**
+ * DropdownMenuShortcut Component:
+ *
+ * Component for displaying keyboard shortcuts in the dropdown menu.
+ *
+ * @param {object} props - React component props.
+ * @param {string} props.className - Additional classes to be applied to the component.
+ * @param {object} props... - Other props are spread to the underlying span element.
+ *
+ * @returns {JSX.Element} - Rendered DropdownMenuShortcut component.
+ */
+
 const DropdownMenuShortcut = ({
   className,
   ...props
@@ -179,6 +245,7 @@ const DropdownMenuShortcut = ({
 };
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 
+// Exporting components for use in other parts of the application
 export {
   DropdownMenu,
   DropdownMenuCheckboxItem,

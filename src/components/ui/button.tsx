@@ -1,9 +1,12 @@
+// Importing dependencies
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
+// Importing utility function
 import { cn } from "@/lib/utils";
 
+// Defining button variants using class-variance-authority (cva)
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800",
   {
@@ -36,6 +39,7 @@ const buttonVariants = cva(
   }
 );
 
+// Defining ButtonProps interface
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -45,6 +49,7 @@ export interface ButtonProps
   RightIcon?: React.ElementType;
 }
 
+// Button component using forwardRef
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -80,6 +85,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+// Setting display name for Button component
 Button.displayName = "Button";
 
+// Exporting Button component and buttonVariants for external use
 export { Button, buttonVariants };
