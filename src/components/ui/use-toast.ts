@@ -3,9 +3,11 @@ import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 
+// Constants for toast management
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
 
+// Type definition for individual toasts in the Toaster component
 type ToasterToast = ToastProps & {
   id: string;
   title?: React.ReactNode;
@@ -13,6 +15,7 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement;
 };
 
+// Action types for the reducer
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
   UPDATE_TOAST: "UPDATE_TOAST",
@@ -20,13 +23,17 @@ const actionTypes = {
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const;
 
+// Counter for generating unique toast IDs
 let count = 0;
 
+// Function to generate unique toast IDs
 function genId() {
   count = (count + 1) % Number.MAX_VALUE;
   return count.toString();
 }
 
+
+// Type definitions for action types and action object
 type ActionType = typeof actionTypes;
 
 type Action =
@@ -47,12 +54,16 @@ type Action =
       toastId?: ToasterToast["id"];
     };
 
+
+// State interface for the Toaster component
 interface State {
   toasts: ToasterToast[];
 }
 
+// Map to store timeout references for toast removal
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 
+// Function to add a toast to the removal queue
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
     return;
@@ -69,6 +80,13 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout);
 };
 
+/**
+ * Reducer function for managing state changes based on actions.
+ *
+ * @param {State} state - Current state of the Toaster.
+ * @param {Action} action - Action to be performed on the state.
+ * @returns {State} - New state after applying the action.
+ */
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
@@ -124,10 +142,19 @@ export const reducer = (state: State, action: Action): State => {
   }
 };
 
+
+// Array to store listeners for state changes
 const listeners: Array<(state: State) => void> = [];
 
+// Variable to store the current state
 let memoryState: State = { toasts: [] };
 
+
+/**
+ * Function to dispatch actions and notify listeners about state changes.
+ *
+ * @param {Action} action - Action to be dispatched.
+ */
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action);
   listeners.forEach((listener) => {
@@ -135,8 +162,15 @@ function dispatch(action: Action) {
   });
 }
 
+// Type definition for the Toast component
 type Toast = Omit<ToasterToast, "id">;
 
+/**
+ * Function to create and show a toast.
+ *
+ * @param {Toast} props - Properties for configuring the toast.
+ * @returns {{ id: string, dismiss: () => void, update: (props: ToasterToast) => void }} - Object representing the created toast.
+ */
 function toast({ ...props }: Toast) {
   const id = genId();
 
@@ -166,6 +200,13 @@ function toast({ ...props }: Toast) {
   };
 }
 
+
+/**
+ * Hook to subscribe to toast state changes.
+ *
+ * @returns {{ toasts: ToasterToast[], toast: (props: Toast) => { id: string, dismiss: () => void, update: (props: ToasterToast) => void }, dismiss: (toastId?: string) => void }} - Object containing toast state and functions.
+ */
+
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState);
 
@@ -186,4 +227,5 @@ function useToast() {
   };
 }
 
+// Exporting the toast and useToast functions
 export { toast, useToast };
