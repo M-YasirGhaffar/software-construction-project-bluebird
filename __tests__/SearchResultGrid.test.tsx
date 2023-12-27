@@ -2,6 +2,23 @@ import { render, screen } from "@testing-library/react";
 import SearchResultGrid from "../src/components/SearchResultGrid"; // Update the path accordingly
 import type MovieDB from "node-themoviedb";
 
+
+// Behavior Testing:
+// Objective: Verify that the rendered component behaves correctly based on specific scenarios and input data.
+// Approach: Test the behavior of the component in terms of rendering specific elements, responding to user queries, and displaying data based on the provided input.
+// Examples in Code:
+// Checking if the title with the correct count is rendered.
+// Verifying that the MovieGrid component is rendered.
+// Confirming the rendering of individual movie items.
+// Ensuring that movie details, such as the title, are rendered correctly.
+// Integration Testing:
+// Objective: Ensure that the component integrates correctly with its dependencies, such as child components and external data sources.
+// Approach: Render the component and perform assertions to verify the correct behavior of the integrated components and data.
+// Examples in Code:
+// Verifying that the MovieGrid component is rendered with the provided movies.
+// Checking if individual movie items are rendered with the expected data.
+// Ensuring that movie details are rendered correctly.
+
 // Mock data for testing
 const mockMovies: MovieDB.Responses.Movie.GetDetails[] = [
     {

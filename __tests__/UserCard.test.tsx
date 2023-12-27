@@ -3,6 +3,15 @@ import { Session } from "next-auth";
 import UserCard from "../src/components/UserCard"; // Update the path accordingly
 import * as nextAuth from "next-auth/react";
 
+// Type: Integration Testing
+// Objective:
+// Ensure correct rendering of user information (name and email).
+// Validate the functionality of the sign-out button click.
+// Assertions:
+// Verify that the user's name and email are displayed correctly.
+// Simulate a click on the "Sign out" button and confirm that the signOut function is called.
+// Ensure that the signOut function returns a resolved Promise.
+
 jest.mock("next-auth/react");
 
 describe("UserCard Component", () => {

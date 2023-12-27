@@ -3,6 +3,17 @@ import { render } from "@testing-library/react";
 import MovieGrid from "../src/components/MovieGrid";
 import MovieDB from "node-themoviedb";
 
+// MovieGrid Component:
+// Type: Component Rendering Testing
+// Objective:
+// Verify the correct rendering of the MovieGrid component.
+// Check if the component displays the title and handles scenarios with and without movies.
+// Assertions:
+// Ensure that the title is rendered correctly.
+// Confirm that the "No movies found" message is displayed when there are no movies.
+// Verify the correct rendering of movie previews when movies are provided.
+// Additional specific assertions can be added based on the actual UI and data.
+
 const TEST_MOVIES_DATA: MovieDB.Responses.Movie.GetDetails[] = [
     {
       adult: false,

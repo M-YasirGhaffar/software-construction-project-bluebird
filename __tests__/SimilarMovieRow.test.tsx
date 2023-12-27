@@ -3,6 +3,16 @@ import { render, screen } from "@testing-library/react";
 import SimilarMovies, { SimilarMoviesSkeleton } from "../src/components/SimilarMovieRow";
 import MovieDB from "node-themoviedb";
 
+
+// SimilarMovies Component:
+// Type: Integration Testing
+// Objective: Ensure correct rendering of movie titles for a single dataset and multiple datasets.
+// Assertions: Verify the presence of the heading "Similar Movies" and individual movie titles.
+// SimilarMoviesSkeleton Component:
+// Type: Unit Testing
+// Objective: Validate isolated behavior, specifically the absence of forbidden text and a specific movie title.
+// Assertions: Confirm that no forbidden text is rendered, the loading state does not crash, and a specific movie title is not present in the skeleton.
+
 const fakeMovies: MovieDB.Responses.Movie.GetDetails[] = [
   {
     id: 1,

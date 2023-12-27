@@ -3,6 +3,16 @@ import { render, screen } from "@testing-library/react";
 import DiscoverGrid from "../src/components/DiscoverGrid";
 import MovieDB from "node-themoviedb";
 
+// DiscoverGrid Component:
+// Type: Component Rendering Testing
+// Objective:
+// Verify the correct rendering of the DiscoverGrid component for different types (Popular, Top Rated, Now Playing, Upcoming) and with custom movie data.
+// Check if the title is displayed appropriately for each type.
+// Assertions:
+// Confirm that the title is rendered correctly for each DiscoverGrid type.
+// Add more specific assertions based on your component's behavior, such as checking if movie previews are displayed correctly.
+// Test the component with custom movie data to ensure it handles different datasets.
+
 const mockMovies: MovieDB.Responses.Movie.GetDetails[] = [
     {
       id: 1,

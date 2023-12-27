@@ -2,6 +2,26 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button, buttonVariants } from "../../src/components/ui/button"; // Update the path accordingly
 
+// Type: Component Unit Testing
+// Objective:
+// Verify the correct rendering and behavior of the Button component under different scenarios.
+// Assertions:
+// Default Button:
+// Confirm that a default button with the label "Click me" is rendered.
+// Check if the button has the appropriate default variant and size classes.
+// Loading Button:
+// Confirm that a button with the label "Click me" and the isLoading prop is rendered.
+// Check if the button contains a loader element (<div data-testid="loader" />).
+// Small Button:
+// Confirm that a button with the label "Click me" and a small size (size="sm") is rendered.
+// Check if the button has the appropriate variant and size classes.
+// Button with Left Icon:
+// Confirm that a button with the label "Click me" and a left icon (mocked as <div data-testid="left-icon" />) is rendered.
+// Check if the button contains the left icon element.
+// Button with Right Icon:
+// Confirm that a button with the label "Click me" and a right icon (mocked as <div data-testid="right-icon" />) is rendered.
+// Check if the button contains the right icon element.
+
 describe("Button Component", () => {
   it("renders a default button", () => {
     render(<Button>Click me</Button>);

@@ -3,6 +3,18 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import BackButton from "../src/components/BackButton";
 import * as NextRouter from "next/router";
 
+// BackButton Component:
+// Type: Component Unit Testing
+// Objective:
+// Verify the correct rendering and behavior of the BackButton component.
+// Check if the default text is displayed correctly and if custom text is rendered when provided.
+// Ensure that the router.back() function is triggered when the BackButton is clicked.
+// Assertions:
+// Confirm that the default text "Back" is rendered in the BackButton component.
+// Test the rendering of the BackButton with custom text and verify that the custom text is displayed.
+// Check that clicking the BackButton triggers the router.back() function.
+// Add more assertions based on your component's specific behavior, such as checking for additional UI elements or styles.
+
 // Create a custom mock for useRouter
 jest.mock("next/router", () => ({
   ...jest.requireActual("next/router"),
