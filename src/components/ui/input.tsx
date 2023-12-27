@@ -1,9 +1,25 @@
+// Importing React for creating functional components
 import * as React from "react";
 
+// Importing utility function for class name generation
 import { cn } from "@/lib/utils";
 
+// Defining the props type for the Input component
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
+/**
+ * Input Component:
+ *
+ * Custom input component with additional styling and features.
+ *
+ * @param {object} props - React component props.
+ * @param {string} props.className - Additional classes to be applied to the component.
+ * @param {string} props.type - Type of the input element (e.g., text, password).
+ * @param {React.Ref} props.ref - Forwarded ref to access the underlying DOM element.
+ * @param {object} props... - Other props are spread to the underlying input element.
+ *
+ * @returns {JSX.Element} - Rendered Input component.
+ */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
@@ -19,6 +35,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
+
+// Assigning a display name to the Input component for better debugging and profiling
 Input.displayName = "Input";
 
+// Exporting the Input component for use in other parts of the application
 export { Input };
+
