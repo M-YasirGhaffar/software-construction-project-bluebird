@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev -p ${PORT:-3000}",
     "postinstall": "npx prisma generate",
     "start": "next start",
     "format": "npx prettier --write . --ignore-path .prettierignore --cache",
